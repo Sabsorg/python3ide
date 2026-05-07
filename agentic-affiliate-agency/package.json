@@ -5,9 +5,11 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run client:build",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
+    "client:dev": "npm --prefix client run dev",
+    "client:build": "npm --prefix client run build",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -15,16 +17,22 @@
     "format": "prettier --write src tests",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["affiliate-marketing", "ai-agents", "claude", "anthropic"],
+  "keywords": [
+    "affiliate-marketing",
+    "ai-agents",
+    "claude",
+    "anthropic"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
-    "fastify": "^5.2.0",
     "@fastify/cors": "^10.0.1",
     "@fastify/helmet": "^12.0.1",
-    "zod": "^3.24.1",
-    "dotenv": "^16.4.7"
+    "@fastify/static": "^9.1.3",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
